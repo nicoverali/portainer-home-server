@@ -1,0 +1,31 @@
+{
+    "version": "2",
+    "templates": [
+        {
+            "type": 3,
+            "title": "Plex torrent server",
+            "description": "A Plex server with a torrent client",
+            "categories": [
+                "media"
+            ],
+            "logo": "https://www.plex.tv/wp-content/themes/plex/assets/img/plex-logo.svg",
+            "repository": {
+                "url": "http://templates/templates/",
+                "stackfile": "plex-server-torrent.yml"
+            },
+            "env": [
+                {
+                    "name": "MYSQL_ROOT_PASSWORD",
+                    "label": "Root password TEST ! DALE LOCO",
+                    "default": "${CONTAINERS_DATA}",
+                    "description": "Docker image registry"
+                },
+                {
+                    "name": "MYSQL_ROOT_HOST",
+                    "default": "%",
+                    "preset": true
+                }
+            ]
+        }
+    ]
+}
