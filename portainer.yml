@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    restart: always
+    command:
+      - --http-disabled
+      - --templates=http://templates/templates.json
+    ports:
+      - ${PORTAINER_AGENT_PORT:-8000}:8000
+      - ${PORTAINER_PORT:-9443}:9443
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${PORTAINER_DATA}:/data
+
+  templates:
+      image: httpd
+      container_name: templates
+      ports:
+        - 8080:80
+      volumes:
+        - ./templates/templates.json:/usr/local/apache2/htdocs/templates.json
+        - ./templates/:/usr/local/apache2/htdocs/templates/
