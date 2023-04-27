@@ -4,6 +4,7 @@ services:
   portainer:
     image: portainer/portainer-ce:latest
     container_name: portainer
+    env_file: containers.env
     restart: always
     command:
       - --http-disabled

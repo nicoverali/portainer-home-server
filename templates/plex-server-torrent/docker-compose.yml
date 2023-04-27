@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  plex:
+    image: linuxserver/plex
+    container_name: plex
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - VERSION=docker
+    ports:
+      - ${PLEX_PORT-32400}:32400
+    volumes:
+      - ${DATA_PATH}/${BASE_PATH:?Missing base path (BASE_PATH)}/plex/config:/config
+      - ${DATA_PATH}/${BASE_PATH:?Missing base path (BASE_PATH)}/plex/tv:/tv
+      - ${DATA_PATH}/${BASE_PATH:?Missing base path (BASE_PATH)}/plex/movies:/movies
+    restart: unless-stopped
+  torrent:
+    image: linuxserver/qbittorrent
+    container_name: torrent
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - WEBUI_PORT=${TORRENT_WEB_PORT-9091}
+    volumes:
+      - ${DATA_PATH}/${BASE_PATH:?Missing base path (BASE_PATH)}/torrent/config:/config
+      - ${DATA_PATH}/${BASE_PATH:?Missing base path (BASE_PATH)}/torrent/downloads:/downloads
+    ports:
+      - ${TORRENT_WEB_PORT-9091}:9091
+      - ${TORRENT_PORT-6881}:6881
+      - ${TORRENT_PORT-6881}:6881/udp
+    restart: unless-stopped

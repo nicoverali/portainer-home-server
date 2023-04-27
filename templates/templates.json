@@ -10,20 +10,32 @@
             ],
             "logo": "https://www.plex.tv/wp-content/themes/plex/assets/img/plex-logo.svg",
             "repository": {
-                "url": "http://templates/templates/",
-                "stackfile": "plex-server-torrent.yml"
+                "url": "https://github.com/nicoverali/portainer-home-server.git",
+                "stackfile": "templates/plex-server-torrent/docker-compose.yml"
             },
             "env": [
                 {
-                    "name": "MYSQL_ROOT_PASSWORD",
-                    "label": "Root password TEST ! DALE LOCO",
-                    "default": "${CONTAINERS_DATA}",
-                    "description": "Docker image registry"
+                    "name": "BASE_PATH",
+                    "label": "Stack base path",
+                    "description": "Base path or folder for this stack"
                 },
                 {
-                    "name": "MYSQL_ROOT_HOST",
-                    "default": "%",
-                    "preset": true
+                    "name": "PLEX_PORT",
+                    "label": "Plex port",
+                    "default": "32400",
+                    "description": "The open port for Plex media server"
+                },
+                {
+                    "name": "TORRENT_WEB_PORT",
+                    "label": "Torrent web port",
+                    "default": "9091",
+                    "description": "Port for torrent web client"
+                },
+                {
+                    "name": "TORRENT_PORT",
+                    "label": "Torrent port",
+                    "default": "6881",
+                    "description": "Port for torrent P2P connections"
                 }
             ]
         }
