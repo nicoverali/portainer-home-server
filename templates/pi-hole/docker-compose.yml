@@ -1,7 +1,9 @@
 version: "3"
 services:
   pihole:
-    build: pihole/pihole
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: pihole
     # For DHCP it is recommended to remove these ports and instead add: network_mode: "host"
     ports:
@@ -16,5 +18,4 @@ services:
     volumes:
       - ${CONTAINERS_PATH:?}/${BASE_PATH:?Missing base path}/pihole:/etc/pihole
       - ${CONTAINERS_PATH:?}/${BASE_PATH:?Missing base path}/dnsmasq.d:/etc/dnsmasq.d
-      - ./custom.list:/etc/pihole/custom.list
     restart: unless-stopped
