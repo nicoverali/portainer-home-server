@@ -1,18 +1,19 @@
 version: "3"
 services:
   pihole:
-    image: pihole/pihole:latest
+    build: pihole/pihole
     container_name: pihole
     env_file: ../base.env
     # For DHCP it is recommended to remove these ports and instead add: network_mode: "host"
     ports:
-      - 53:53/tcp
-      - 53:53/udp
-      - 67:67/udp # Only required if you are using Pi-hole as your DHCP server
-      - ${PIHOLE_PORT-80}:80/tcp
+      - ${HOST_IP:?Missing host IP}:53:53/tcp
+      - ${HOST_IP:?Missing host IP}:53:53/udp
+      - ${HOST_IP:?Missing host IP}:67:67/udp # Only required if you are using Pi-hole as your DHCP server
+      - ${HOST_IP:?Missing host IP}:${PIHOLE_PORT-80}:80/tcp
     environment:
       TZ: ${TZ}
       WEBPASSWORD: ${PIHOLE_PASSWORD:?Missing pi-hole password}
+      QUERY_LOGGING: "false"
     volumes:
       - ${DATA_PATH}/${BASE_PATH:?Missing base path}/pihole:/etc/pihole
       - ${DATA_PATH}/${BASE_PATH:?Missing base path}/dnsmasq.d:/etc/dnsmasq.d

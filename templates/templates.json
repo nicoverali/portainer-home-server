@@ -55,7 +55,13 @@
                 {
                     "name": "BASE_PATH",
                     "label": "Stack base path",
+                    "default": "pihole",
                     "description": "Base path or folder for this stack"
+                },
+                {
+                    "name": "HOST_IP",
+                    "label": "Host IP",
+                    "description": "The IP of the Docker host"
                 },
                 {
                     "name": "PIHOLE_PORT",
