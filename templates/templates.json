@@ -69,6 +69,46 @@
                     "description": "Admin password for Pi-hole web interface"
                 }
             ]
+        },
+        {
+            "type": 3,
+            "title": "Nginx Reverse Proxy",
+            "description": "An Nginx instance to do reverse proxying to home server services",
+            "categories": [
+                "network"
+            ],
+            "logo": "https://www.nginx.com/wp-content/uploads/2020/05/NGINX-product-icon.svg",
+            "repository": {
+                "url": "https://github.com/nicoverali/portainer-home-server.git",
+                "stackfile": "templates/nginx-reverse-proxy/docker-compose.yml"
+            },
+            "env": [
+                {
+                    "name": "PLEX_PORT",
+                    "label": "Plex port",
+                    "description": "Port for Plex server"
+                },
+                {
+                    "name": "PIHOLE_PORT",
+                    "label": "Pi-hole port",
+                    "description": "Port for Pi-hole"
+                },
+                {
+                    "name": "TORRENT_PORT",
+                    "label": "Torrent web port",
+                    "description": "Port for web torrent client"
+                },
+                {
+                    "name": "PORTAINER_PORT",
+                    "label": "Portainer port",
+                    "description": "Port for Portainer server"
+                },
+                {
+                    "name": "OMV_PORT",
+                    "label": "OpenMediaVault port",
+                    "description": "Port for OpenMediaVault"
+                }
+            ]
         }
     ]
 }

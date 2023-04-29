@@ -1,0 +1,35 @@
+server {
+        server_name plex.pi.home;
+        location / {
+                deny    all;
+                allow   192.168.0.0/24;
+                proxy_pass http://localhost:${PLEX_PORT}/;      
+        }
+}
+
+server {
+        server_name hole.pi.home
+        location / {
+                deny    all;
+                allow   192.168.0.0/24;
+                proxy_pass http://localhost:${PIHOLE_PORT}/;      
+        }
+}
+
+server {
+        server_name portainer.pi.home
+        location / {
+                deny    all;
+                allow   192.168.0.0/24;
+                proxy_pass http://localhost:${PORTAINER_PORT}/;      
+        }
+}
+
+server {
+        server_name omv.pi.home
+        location / {
+                deny    all;
+                allow   192.168.0.0/24;
+                proxy_pass http://localhost:${OMV_PORT}/;      
+        }
+}

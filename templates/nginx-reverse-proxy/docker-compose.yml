@@ -3,6 +3,7 @@ services:
   nginx:
     image: nginx
     container_name: nginx
+    env_file: ../base.env
     network_mode: "host"
     volumes:
-      - /srv/dev-disk-by-uuid-11d78789-30d2-4e14-bf2a-e97699978c67/nginx/:/etc/nginx/conf.d/
+      - ./templates:/etc/nginx/templates
