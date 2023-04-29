@@ -3,7 +3,7 @@ server {
         location / {
                 deny    all;
                 allow   192.168.0.0/24;
-                proxy_pass http://localhost:${PLEX_PORT}/;      
+                proxy_pass http://localhost:32400/;      
         }
 }
 
@@ -12,7 +12,7 @@ server {
         location / {
                 deny    all;
                 allow   192.168.0.0/24;
-                proxy_pass http://localhost:${PIHOLE_PORT}/;      
+                proxy_pass http://localhost:5000/;      
         }
 }
 
@@ -21,7 +21,7 @@ server {
         location / {
                 deny    all;
                 allow   192.168.0.0/24;
-                proxy_pass http://localhost:${PORTAINER_PORT}/;      
+                proxy_pass http://localhost:9443/;      
         }
 }
 
@@ -30,6 +30,6 @@ server {
         location / {
                 deny    all;
                 allow   192.168.0.0/24;
-                proxy_pass http://localhost:${OMV_PORT}/;      
+                proxy_pass http://localhost:1000/;      
         }
 }

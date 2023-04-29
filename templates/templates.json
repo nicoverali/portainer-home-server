@@ -59,6 +59,11 @@
                     "description": "Base path or folder for this stack"
                 },
                 {
+                    "name": "HOST_DNSLIST_PATH",
+                    "label": "Host path to custom list",
+                    "description": "Path in host machine to custom.list file"
+                },
+                {
                     "name": "HOST_IP",
                     "label": "Host IP",
                     "description": "The IP of the Docker host"
@@ -88,31 +93,12 @@
                 "url": "https://github.com/nicoverali/portainer-home-server.git",
                 "stackfile": "templates/nginx-reverse-proxy/docker-compose.yml"
             },
+            "note": "You can configure Nginx configuration by editing the template files. You can have as many templates as you like",
             "env": [
                 {
-                    "name": "PLEX_PORT",
-                    "label": "Plex port",
-                    "description": "Port for Plex server"
-                },
-                {
-                    "name": "PIHOLE_PORT",
-                    "label": "Pi-hole port",
-                    "description": "Port for Pi-hole"
-                },
-                {
-                    "name": "TORRENT_PORT",
-                    "label": "Torrent web port",
-                    "description": "Port for web torrent client"
-                },
-                {
-                    "name": "PORTAINER_PORT",
-                    "label": "Portainer port",
-                    "description": "Port for Portainer server"
-                },
-                {
-                    "name": "OMV_PORT",
-                    "label": "OpenMediaVault port",
-                    "description": "Port for OpenMediaVault"
+                    "name": "HOST_TEMPLATES_PATH",
+                    "label": "Host path to templates",
+                    "description": "Path in host machine to Nginx templates"
                 }
             ]
         }

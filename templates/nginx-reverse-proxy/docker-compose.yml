@@ -5,4 +5,4 @@ services:
     container_name: nginx
     network_mode: "host"
     volumes:
-      - ./templates:/etc/nginx/templates
+      - ${HOST_TEMPLATES_PATH:?}:/etc/nginx/templates

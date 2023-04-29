@@ -18,4 +18,5 @@ services:
     volumes:
       - ${CONTAINERS_PATH:?}/${BASE_PATH:?Missing base path}/pihole:/etc/pihole
       - ${CONTAINERS_PATH:?}/${BASE_PATH:?Missing base path}/dnsmasq.d:/etc/dnsmasq.d
+      - ${HOST_DNSLIST_PATH:?}:/etc/pihole/custom.list
     restart: unless-stopped
