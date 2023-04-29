@@ -38,6 +38,37 @@
                     "description": "Port for torrent P2P connections"
                 }
             ]
+        },
+        {
+            "type": 3,
+            "title": "Pi-hole DNS",
+            "description": "A Pi-hole DNS instance for local routing and ads blocking",
+            "categories": [
+                "network"
+            ],
+            "logo": "https://wp-cdn.pi-hole.net/wp-content/uploads/2016/12/Vortex-R.webp",
+            "repository": {
+                "url": "https://github.com/nicoverali/portainer-home-server.git",
+                "stackfile": "templates/pi-hole/docker-compose.yml"
+            },
+            "env": [
+                {
+                    "name": "BASE_PATH",
+                    "label": "Stack base path",
+                    "description": "Base path or folder for this stack"
+                },
+                {
+                    "name": "PIHOLE_PORT",
+                    "label": "Pi-hole port",
+                    "default": "80",
+                    "description": "The open port for Pi-hole web interface"
+                },
+                {
+                    "name": "PIHOLE_PASSWORD",
+                    "label": "Pi-hole password",
+                    "description": "Admin password for Pi-hole web interface"
+                }
+            ]
         }
     ]
 }
