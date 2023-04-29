@@ -4,6 +4,7 @@ services:
   plex:
     image: linuxserver/plex
     container_name: plex
+    env_file: ../base.env
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
@@ -19,6 +20,7 @@ services:
   torrent:
     image: linuxserver/qbittorrent
     container_name: torrent
+    env_file: ../base.env
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
