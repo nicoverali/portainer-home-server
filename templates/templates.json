@@ -96,9 +96,14 @@
             "note": "You can configure Nginx configuration by editing the template files. You can have as many templates as you like",
             "env": [
                 {
-                    "name": "HOST_TEMPLATES_PATH",
-                    "label": "Host path to templates",
-                    "description": "Path in host machine to Nginx templates"
+                    "name": "HOST_CONFD_PATH",
+                    "label": "Host path to conf.d folder",
+                    "description": "Path in host machine to Nginx configuration files"
+                },
+                {
+                    "name": "HOST_INCLUDES_PATH",
+                    "label": "Host path to includes folder",
+                    "description": "Path in host machine to Nginx include files"
                 }
             ]
         }

@@ -4,23 +4,21 @@ services:
   plex:
     image: linuxserver/plex
     container_name: plex
-    env_file: ../base.env
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
+      - PUID=${CONTAINERS_UID:?}
+      - PGID=${CONTAINERS_GID:?}
+      - TZ=${CONTAINERS_TZ:?}
       - VERSION=docker
     ports:
       - ${PLEX_PORT-32400}:32400
     volumes:
-      - ${DATA_PATH}/${BASE_PATH:?Missing base path (BASE_PATH)}/plex/config:/config
-      - ${DATA_PATH}/${BASE_PATH:?Missing base path (BASE_PATH)}/plex/tv:/tv
-      - ${DATA_PATH}/${BASE_PATH:?Missing base path (BASE_PATH)}/plex/movies:/movies
+      - ${CONTAINERS_PATH:?}/${BASE_PATH:?Missing base path (BASE_PATH)}/plex/config:/config
+      - ${CONTAINERS_PATH:?}/${BASE_PATH:?Missing base path (BASE_PATH)}/plex/tv:/tv
+      - ${CONTAINERS_PATH:?}/${BASE_PATH:?Missing base path (BASE_PATH)}/plex/movies:/movies
     restart: unless-stopped
   torrent:
     image: linuxserver/qbittorrent
     container_name: torrent
-    env_file: ../base.env
     environment:
       - PUID=${CONTAINERS_UID:?}
       - PGID=${CONTAINERS_GID:?}
