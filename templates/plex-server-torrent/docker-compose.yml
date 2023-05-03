@@ -32,3 +32,10 @@ services:
       - ${TORRENT_PORT-6881}:6881
       - ${TORRENT_PORT-6881}:6881/udp
     restart: unless-stopped
+    networks:
+      - services-network
+
+networks:
+  services-network:
+    external: true
+    name: ${SERVICES_NETWORK_NAME:?}

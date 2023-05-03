@@ -36,6 +36,12 @@
                     "label": "Torrent port",
                     "default": "6881",
                     "description": "Port for torrent P2P connections"
+                },
+                {
+                    "name": "SERVICES_NETWORK_NAME",
+                    "label": "Services network name",
+                    "default": "home-services",
+                    "description": "Name for home services bridge network"
                 }
             ]
         },
@@ -78,32 +84,40 @@
                     "name": "PIHOLE_PASSWORD",
                     "label": "Pi-hole password",
                     "description": "Admin password for Pi-hole web interface"
+                },
+                {
+                    "name": "SERVICES_NETWORK_NAME",
+                    "label": "Services network name",
+                    "default": "home-services",
+                    "description": "Name for home services bridge network"
                 }
             ]
         },
         {
             "type": 3,
-            "title": "Nginx Reverse Proxy",
-            "description": "An Nginx instance to do reverse proxying to home server services",
+            "title": "Nginx Proxy Manager",
+            "description": "An Nginx manager for proxying services and more !",
             "categories": [
                 "network"
             ],
-            "logo": "https://www.nginx.com/wp-content/uploads/2020/05/NGINX-product-icon.svg",
+            "logo": "https://nginxproxymanager.com/icon.png",
             "repository": {
                 "url": "https://github.com/nicoverali/portainer-home-server.git",
-                "stackfile": "templates/nginx-reverse-proxy/docker-compose.yml"
+                "stackfile": "templates/nginx-proxy-manager/docker-compose.yml"
             },
             "note": "You can configure Nginx configuration by editing the template files. You can have as many templates as you like",
             "env": [
                 {
-                    "name": "HOST_CONFD_PATH",
-                    "label": "Host path to conf.d folder",
-                    "description": "Path in host machine to Nginx configuration files"
+                    "name": "BASE_PATH",
+                    "label": "Stack base path",
+                    "default": "nginx-proxy-manager",
+                    "description": "Base path or folder for this stack"
                 },
                 {
-                    "name": "HOST_INCLUDES_PATH",
-                    "label": "Host path to includes folder",
-                    "description": "Path in host machine to Nginx include files"
+                    "name": "SERVICES_NETWORK_NAME",
+                    "label": "Services network name",
+                    "default": "home-services",
+                    "description": "Name for home services bridge network"
                 }
             ]
         }

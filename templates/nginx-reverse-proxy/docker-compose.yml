@@ -1,9 +1,0 @@
-version: "3"
-services:
-  nginx:
-    image: nginx
-    container_name: nginx
-    network_mode: "host"
-    volumes:
-      - ${HOST_CONFD_PATH:?}:/etc/nginx/conf.d
-      - ${HOST_INCLUDES_PATH?:}:/etc/nginx/includes
