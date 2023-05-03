@@ -12,9 +12,9 @@ services:
     ports:
       - ${PLEX_PORT-32400}:32400
     volumes:
-      - ${CONTAINERS_PATH:?}/${BASE_PATH:?Missing base path (BASE_PATH)}/plex/config:/config
-      - ${CONTAINERS_PATH:?}/${BASE_PATH:?Missing base path (BASE_PATH)}/plex/tv:/tv
-      - ${CONTAINERS_PATH:?}/${BASE_PATH:?Missing base path (BASE_PATH)}/plex/movies:/movies
+      - ${CONTAINERS_PATH:?}/${BASE_PATH:?}/plex/config:/config
+      - ${CONTAINERS_PATH:?}/${BASE_PATH:?}/plex/tv:/tv
+      - ${CONTAINERS_PATH:?}/${BASE_PATH:?}/plex/movies:/movies
     restart: unless-stopped
   torrent:
     image: linuxserver/qbittorrent
@@ -25,8 +25,8 @@ services:
       - TZ=${CONTAINERS_TZ:?}
       - WEBUI_PORT=${TORRENT_WEB_PORT-9091}
     volumes:
-      - ${CONTAINERS_PATH:?}/${BASE_PATH:?Missing base path (BASE_PATH)}/torrent/config:/config
-      - ${CONTAINERS_PATH:?}/${BASE_PATH:?Missing base path (BASE_PATH)}/torrent/downloads:/downloads
+      - ${CONTAINERS_PATH:?}/${BASE_PATH:?}/torrent/config:/config
+      - ${CONTAINERS_PATH:?}/${BASE_PATH:?}/torrent/downloads:/downloads
     ports:
       - ${TORRENT_WEB_PORT-9091}:9091
       - ${TORRENT_PORT-6881}:6881
