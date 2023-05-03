@@ -9,6 +9,7 @@ services:
       - PGID=${CONTAINERS_GID:?}
       - TZ=${CONTAINERS_TZ:?}
       - VERSION=docker
+      - PLEX_CLAIM=${PLEX_CLAIM}
     ports:
       - ${PLEX_PORT-32400}:32400
     volumes:

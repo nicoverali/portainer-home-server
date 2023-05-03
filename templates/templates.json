@@ -26,6 +26,11 @@
                     "description": "The open port for Plex media server"
                 },
                 {
+                    "name": "PLEX_CLAIM",
+                    "label": "Plex claim token (optional)",
+                    "description": "Specify a Plex claim to setup Plex server if its the first time booting up"
+                },
+                {
                     "name": "TORRENT_WEB_PORT",
                     "label": "Torrent web port",
                     "default": "9091",
