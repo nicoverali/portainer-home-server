@@ -16,6 +16,8 @@ services:
       - ${CONTAINERS_PATH:?}/${BASE_PATH:?}/plex/tv:/tv
       - ${CONTAINERS_PATH:?}/${BASE_PATH:?}/plex/movies:/movies
     restart: unless-stopped
+    networks:
+      - services-network
   torrent:
     image: linuxserver/qbittorrent
     container_name: torrent
