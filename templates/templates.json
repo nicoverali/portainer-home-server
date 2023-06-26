@@ -125,6 +125,44 @@
                     "description": "Name for home services bridge network"
                 }
             ]
+        },
+        {
+            "type": 4,
+            "title": "Wireguard VPN",
+            "description": "An open source VPN to access local network from outside",
+            "categories": [
+                "network"
+            ],
+            "logo": "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/18/dd/92/18dd9277-aed3-f744-453f-0a9cb9c66f0e/AppIcon-1x_U007emarketing-0-7-0-85-220.png/1200x630wa.png",
+            "repository": {
+                "url": "https://github.com/nicoverali/portainer-home-server.git",
+                "stackfile": "templates/wireguard/docker-compose.yml"
+            },
+            "env": [
+                {
+                    "name": "PEERS_CANT",
+                    "label": "Peers",
+                    "default": "2",
+                    "description": "Number of peers"
+                },
+                {
+                    "name": "PEERS_DNS",
+                    "label": "Peers DNS",
+                    "description": "DNS configuration for peers"
+                },
+                {
+                    "name": "BASE_PATH",
+                    "label": "Stack base path",
+                    "default": "wireguard",
+                    "description": "Base path or folder for this stack"
+                },
+                {
+                    "name": "SERVICES_NETWORK_NAME",
+                    "label": "Services network name",
+                    "default": "home-services",
+                    "description": "Name for home services bridge network"
+                }
+            ]
         }
     ]
 }
