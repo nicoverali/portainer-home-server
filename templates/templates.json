@@ -75,11 +75,6 @@
                     "description": "Path in host machine to custom.list file"
                 },
                 {
-                    "name": "HOST_IP",
-                    "label": "Host IP",
-                    "description": "The IP of the Docker host"
-                },
-                {
                     "name": "PIHOLE_PORT",
                     "label": "Pi-hole port",
                     "default": "80",
