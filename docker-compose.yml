@@ -25,7 +25,8 @@ services:
         - 8080:80
       volumes:
         - ./templates/templates.json:/usr/local/apache2/htdocs/templates.json
-        - ./templates/:/usr/local/apache2/htdocs/templates/
+      networks:
+        - services-network
 
 networks:
   services-network:
