@@ -16,7 +16,7 @@ services:
       - PEERDNS=${DNS_IP} #optional
       - INTERNAL_SUBNET=10.13.13.0 #optional
       - ALLOWEDIPS=0.0.0.0/0 #optional
-      - PERSISTENTKEEPALIVE_PEERS= #optional
+      - PERSISTENTKEEPALIVE_PEERS= all #optional
       - LOG_CONFS=true #optional
     volumes:
       - ${CONTAINERS_PATH:?}/${BASE_PATH:?}/config:/config
