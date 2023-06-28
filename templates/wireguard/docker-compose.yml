@@ -13,18 +13,22 @@ services:
       - SERVERURL=fliavera.duckdns.org #optional
       - SERVERPORT=51820 #optional
       - PEERS=${PEERS_CANT} #optional
-      - PEERDNS=${PEERS_DNS} #optional
+      - PEERDNS=${DNS_IP} #optional
       - INTERNAL_SUBNET=10.13.13.0 #optional
       - ALLOWEDIPS=0.0.0.0/0 #optional
       - PERSISTENTKEEPALIVE_PEERS= #optional
       - LOG_CONFS=true #optional
     volumes:
       - ${CONTAINERS_PATH:?}/${BASE_PATH:?}/config:/config
+      - /lib/modules:/lib/modules
     ports:
       - 51820:51820/tcp
       - 51820:51820/udp
     networks:
       services-network:
+      dns:
+    dns:
+      - ${DNS_IP:?}
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1
     restart: unless-stopped
@@ -33,3 +37,6 @@ networks:
   services-network:
     external: true
     name: ${SERVICES_NETWORK_NAME:?}
+  dns:
+    external: true
+    name: ${DNS_NETWORK_NAME:?}

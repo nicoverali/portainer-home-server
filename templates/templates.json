@@ -159,11 +159,6 @@
                     "description": "Number of peers"
                 },
                 {
-                    "name": "PEERS_DNS",
-                    "label": "Peers DNS",
-                    "description": "DNS configuration for peers"
-                },
-                {
                     "name": "BASE_PATH",
                     "label": "Stack base path",
                     "default": "wireguard",
@@ -174,6 +169,18 @@
                     "label": "Services network name",
                     "default": "home-services",
                     "description": "Name for home services bridge network"
+                },
+                {
+                    "name": "DNS_NETWORK_NAME",
+                    "label": "DNS network name",
+                    "default": "dns-network",
+                    "description": "Network name were DNS services is hosted"
+                },
+                {
+                    "name": "DNS_IP",
+                    "label": "DNS IP",
+                    "default": "10.4.4.2",
+                    "description": "IP of DNS service within DNS network"
                 }
             ]
         }
