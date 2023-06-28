@@ -90,6 +90,24 @@
                     "label": "Services network name",
                     "default": "home-services",
                     "description": "Name for home services bridge network"
+                },
+                {
+                    "name": "DNS_NETWORK_NAME",
+                    "label": "DNS network name",
+                    "default": "dns-network",
+                    "description": "Name for DNS network"
+                },
+                {
+                    "name": "DNS_NETWORK_SUBNET",
+                    "label": "DNS network subnet",
+                    "default": "10.4.4.0/24",
+                    "description": "Subnet definition for DNS network"
+                },
+                {
+                    "name": "DNS_NETWORK_IP",
+                    "label": "DNS network IP",
+                    "default": "10.4.4.2",
+                    "description": "Pihole IP address within DNS network"
                 }
             ]
         },

@@ -22,8 +22,17 @@ services:
     restart: unless-stopped
     networks:
       services-network:
+      dns-network:
+        ipv4_address: ${DNS_NETWORK_IP:?}
+
 
 networks:
   services-network:
     external: true
     name: ${SERVICES_NETWORK_NAME:?}
+  dns-network:
+    name: ${DNS_NETWORK_NAME:?}
+    driver: bridge
+    ipam:
+     config:
+       - subnet: ${DNS_NETWORK_SUBNET:?}
