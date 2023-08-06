@@ -52,21 +52,21 @@
         },
         {
             "type": 3,
-            "title": "Pi-hole DNS",
-            "description": "A Pi-hole DNS instance for local routing and ads blocking",
+            "title": "Wirehole (DNS+VPN)",
+            "description": "A Pi-hole DNS instance for local routing and ads blocking, plus Wireguard for VPN connection to the server",
             "categories": [
                 "network"
             ],
-            "logo": "https://wp-cdn.pi-hole.net/wp-content/uploads/2016/12/Vortex-R.webp",
+            "logo": "https://repository-images.githubusercontent.com/574614166/c02918af-cc35-4478-86fb-5288b742841e",
             "repository": {
                 "url": "https://github.com/nicoverali/portainer-home-server.git",
-                "stackfile": "templates/pi-hole/docker-compose.yml"
+                "stackfile": "templates/dns-vpn/docker-compose.yml"
             },
             "env": [
                 {
                     "name": "BASE_PATH",
                     "label": "Stack base path",
-                    "default": "pihole",
+                    "default": "wirehole",
                     "description": "Base path or folder for this stack"
                 },
                 {
@@ -86,28 +86,10 @@
                     "description": "Admin password for Pi-hole web interface"
                 },
                 {
-                    "name": "SERVICES_NETWORK_NAME",
-                    "label": "Services network name",
-                    "default": "home-services",
-                    "description": "Name for home services bridge network"
-                },
-                {
-                    "name": "DNS_NETWORK_NAME",
-                    "label": "DNS network name",
-                    "default": "dns-network",
-                    "description": "Name for DNS network"
-                },
-                {
-                    "name": "DNS_NETWORK_SUBNET",
-                    "label": "DNS network subnet",
-                    "default": "10.4.4.0/24",
-                    "description": "Subnet definition for DNS network"
-                },
-                {
-                    "name": "DNS_NETWORK_IP",
-                    "label": "DNS network IP",
-                    "default": "10.4.4.2",
-                    "description": "Pihole IP address within DNS network"
+                    "name": "PEERS_CANT",
+                    "label": "Peers",
+                    "default": "2",
+                    "description": "Number of Wireguard peers"
                 }
             ]
         },
@@ -141,46 +123,74 @@
         },
         {
             "type": 3,
-            "title": "Wireguard VPN",
-            "description": "An open source VPN to access local network from outside",
+            "title": "Storage Services",
+            "description": "A set of storage related services to backup photos and documents",
             "categories": [
-                "network"
+                "storage",
+                "media"
             ],
-            "logo": "https://static-00.iconduck.com/assets.00/wireguard-icon-512x512-7suxjlbo.png",
             "repository": {
                 "url": "https://github.com/nicoverali/portainer-home-server.git",
-                "stackfile": "templates/wireguard/docker-compose.yml"
+                "stackfile": "templates/home-assistant/docker-compose.yml"
             },
             "env": [
                 {
-                    "name": "PEERS_CANT",
-                    "label": "Peers",
-                    "default": "2",
-                    "description": "Number of peers"
+                    "name": "BASE_PATH",
+                    "label": "Stack base path",
+                    "default": "storage-services",
+                    "description": "Base path or folder for this stack"
                 },
+                {
+                    "name": "IMMICH_VERSION",
+                    "label": "Immich version",
+                    "default": "release"
+                },
+                {
+                    "name": "TYPESENSE_API_KEY",
+                    "label": "Typesense API key",
+                    "description": "A Typesense API key"
+                },
+                {
+                    "name": "DB_USERNAME",
+                    "label": "Database user",
+                    "default": "admin"
+                },
+                {
+                    "name": "DB_PASSWORD",
+                    "label": "Database password",
+                    "default": "admin"
+                }
+            ]
+        },
+        {
+            "type": 3,
+            "title": "Home Assistant",
+            "description": "Open source home automation that puts local control and privacy first.",
+            "categories": [
+                "network"
+            ],
+            "logo": "https://design.home-assistant.io/images/clearspace.png",
+            "repository": {
+                "url": "https://github.com/nicoverali/portainer-home-server.git",
+                "stackfile": "templates/home-assistant/docker-compose.yml"
+            },
+            "env": [
                 {
                     "name": "BASE_PATH",
                     "label": "Stack base path",
-                    "default": "wireguard",
+                    "default": "home-assistant",
                     "description": "Base path or folder for this stack"
+                },
+                {
+                    "name": "PORT",
+                    "label": "Web GUI port",
+                    "default": "8123"
                 },
                 {
                     "name": "SERVICES_NETWORK_NAME",
                     "label": "Services network name",
                     "default": "home-services",
                     "description": "Name for home services bridge network"
-                },
-                {
-                    "name": "DNS_NETWORK_NAME",
-                    "label": "DNS network name",
-                    "default": "dns-network",
-                    "description": "Network name were DNS services is hosted"
-                },
-                {
-                    "name": "DNS_IP",
-                    "label": "DNS IP",
-                    "default": "10.4.4.2",
-                    "description": "IP of DNS service within DNS network"
                 }
             ]
         }
