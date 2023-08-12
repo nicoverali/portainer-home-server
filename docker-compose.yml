@@ -15,20 +15,11 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${PORTAINER_DATA}:/data
-    networks:
-      - services-network
 
   templates:
-      image: httpd
-      container_name: templates
-      ports:
-        - 8080:80
-      volumes:
-        - ./templates/templates.json:/usr/local/apache2/htdocs/templates.json
-      networks:
-        - services-network
-
-networks:
-  services-network:
-    external: true
-    name: ${SERVICES_NETWORK_NAME:?}
+    image: httpd
+    container_name: templates
+    ports:
+      - 8080:80
+    volumes:
+      - ./templates/templates.json:/usr/local/apache2/htdocs/templates.json
