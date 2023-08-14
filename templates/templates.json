@@ -123,7 +123,7 @@
         },
         {
             "type": 3,
-            "title": "Storage Services",
+            "title": "Immich",
             "description": "A set of storage related services to backup photos and documents",
             "categories": [
                 "storage",
@@ -131,7 +131,7 @@
             ],
             "repository": {
                 "url": "https://github.com/nicoverali/portainer-home-server.git",
-                "stackfile": "templates/home-assistant/docker-compose.yml"
+                "stackfile": "templates/storage-services/docker-compose.yml"
             },
             "env": [
                 {
@@ -142,23 +142,28 @@
                 },
                 {
                     "name": "IMMICH_VERSION",
-                    "label": "Immich version",
-                    "default": "release"
+                    "label": "Immich version"
+                },
+                {
+                    "name": "DB_HOSTNAME",
+                    "label": "Database hostname"
+                },
+                {
+                    "name": "DB_USERNAME",
+                    "label": "Database user"
+                },
+                {
+                    "name": "DB_PASSWORD",
+                    "label": "Database password"
+                },
+                {
+                    "name": "DB_NAME_IMMICH",
+                    "label": "Immich database name"
                 },
                 {
                     "name": "TYPESENSE_API_KEY",
                     "label": "Typesense API key",
                     "description": "A Typesense API key"
-                },
-                {
-                    "name": "DB_USERNAME",
-                    "label": "Database user",
-                    "default": "admin"
-                },
-                {
-                    "name": "DB_PASSWORD",
-                    "label": "Database password",
-                    "default": "admin"
                 }
             ]
         },
@@ -169,7 +174,7 @@
             "categories": [
                 "network"
             ],
-            "logo": "https://design.home-assistant.io/images/clearspace.png",
+            "logo": "https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_homeassistant_icon_130543.png",
             "repository": {
                 "url": "https://github.com/nicoverali/portainer-home-server.git",
                 "stackfile": "templates/home-assistant/docker-compose.yml"
@@ -185,12 +190,6 @@
                     "name": "PORT",
                     "label": "Web GUI port",
                     "default": "8123"
-                },
-                {
-                    "name": "SERVICES_NETWORK_NAME",
-                    "label": "Services network name",
-                    "default": "home-services",
-                    "description": "Name for home services bridge network"
                 }
             ]
         }
