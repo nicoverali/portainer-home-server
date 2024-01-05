@@ -4,8 +4,21 @@ services:
     container_name: homeassistant
     image: "ghcr.io/home-assistant/home-assistant:stable"
     volumes:
-      - ${CONTAINERS_PATH:?}/${BASE_PATH:?}/config:/config
+      - ${INTERNAL_CONTAINERS_PATH:?}/${BASE_PATH:?}/config:/config
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
     ports:
       - ${PORT-8123}:8123
+      # These two are needed for LocalTuya to discover devices
+      - 6666:6666/udp
+      - 6667:6667/udp
+  go2rtc:
+    container_name: go2rtc
+    image: "alexxit/go2rtc"
+    network_mode: host
+    privileged: true
+    restart: unless-stopped
+    environment:
+      - TZ=${CONTAINERS_TZ}
+    volumes:
+      - ${INTERNAL_CONTAINERS_PATH:?}/${BASE_PATH:?}/go2rtc:/config
