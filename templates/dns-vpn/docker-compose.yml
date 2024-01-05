@@ -16,8 +16,8 @@ services:
       WEBPASSWORD: ${PIHOLE_PASSWORD:?Missing pi-hole password}
       QUERY_LOGGING: "false"
     volumes:
-      - ${CONTAINERS_PATH:?}/${BASE_PATH:?}/pihole:/etc/pihole
-      - ${CONTAINERS_PATH:?}/${BASE_PATH:?}/dnsmasq.d:/etc/dnsmasq.d
+      - ${INTERNAL_CONTAINERS_PATH:?}/${BASE_PATH:?}/pihole:/etc/pihole
+      - ${INTERNAL_CONTAINERS_PATH:?}/${BASE_PATH:?}/dnsmasq.d:/etc/dnsmasq.d
       - ${HOST_DNSLIST_PATH:?}:/etc/pihole/custom.list
     restart: unless-stopped
     networks:
@@ -45,7 +45,7 @@ services:
       - PERSISTENTKEEPALIVE_PEERS=all #optional
       - LOG_CONFS=true #optional
     volumes:
-      - ${CONTAINERS_PATH:?}/${BASE_PATH:?}/wireguard:/config
+      - ${INTERNAL_CONTAINERS_PATH:?}/${BASE_PATH:?}/wireguard:/config
       - /lib/modules:/lib/modules
     ports:
       - 51820:51820/tcp
