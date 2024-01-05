@@ -129,6 +129,7 @@
                 "storage",
                 "media"
             ],
+            "logo": "https://immich.app/img/immich-logo.svg",
             "repository": {
                 "url": "https://github.com/nicoverali/portainer-home-server.git",
                 "stackfile": "templates/storage-services/docker-compose.yml"
