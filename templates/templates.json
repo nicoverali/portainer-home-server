@@ -142,28 +142,13 @@
                 },
                 {
                     "name": "IMMICH_VERSION",
-                    "label": "Immich version"
-                },
-                {
-                    "name": "DB_HOSTNAME",
-                    "label": "Database hostname"
-                },
-                {
-                    "name": "DB_USERNAME",
-                    "label": "Database user"
+                    "label": "Immich version",
+                    "default": "v1.91.4"
                 },
                 {
                     "name": "DB_PASSWORD",
-                    "label": "Database password"
-                },
-                {
-                    "name": "DB_NAME_IMMICH",
-                    "label": "Immich database name"
-                },
-                {
-                    "name": "TYPESENSE_API_KEY",
-                    "label": "Typesense API key",
-                    "description": "A Typesense API key"
+                    "label": "Database password",
+                    "default": "postgres"
                 }
             ]
         },
