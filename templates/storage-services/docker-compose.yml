@@ -60,7 +60,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_DB: immich
     volumes:
-      - ${CONTAINERS_PATH:?}/${BASE_PATH:?}/immich/db:/var/lib/postgresql/data
+      - ${INTERNAL_CONTAINERS_PATH:?}/${BASE_PATH:?}/immich/db:/var/lib/postgresql/data
     restart: always
 
 volumes:
