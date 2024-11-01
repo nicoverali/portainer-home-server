@@ -186,6 +186,16 @@
                     "name": "GO2RTC_VERSION",
                     "label": "Go2RTC version",
                     "default": "latest"
+                },
+                {
+                    "name": "HA_NAME",
+                    "label": "Home Assistant container name",
+                    "default": "homeassistant"
+                },
+                {
+                    "name": "GO2RTC_NAME",
+                    "label": "Go2RTC container name",
+                    "default": "go2rtc"
                 }
             ]
         }

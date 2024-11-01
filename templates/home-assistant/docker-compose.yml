@@ -1,7 +1,7 @@
 version: '3'
 services:
   homeassistant:
-    container_name: homeassistant
+    container_name: ${HA_NAME}
     image: "ghcr.io/home-assistant/home-assistant:${VERSION}"
     volumes:
       - ${INTERNAL_CONTAINERS_PATH:?}/${BASE_PATH:?}/config:/config
@@ -13,7 +13,7 @@ services:
       - 6666:6666/udp
       - 6667:6667/udp
   go2rtc:
-    container_name: go2rtc
+    container_name: ${GO2RTC_NAME}
     image: "alexxit/go2rtc:${GO2RTC_VERSION}"
     network_mode: host
     privileged: true
