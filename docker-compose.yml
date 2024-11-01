@@ -5,6 +5,8 @@ services:
     image: portainer/portainer-ce:latest
     container_name: portainer
     env_file: containers.env
+    dns:
+      - "1.1.1.1"
     restart: always
     command:
       - --http-disabled
