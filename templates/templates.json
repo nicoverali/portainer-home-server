@@ -173,14 +173,25 @@
                     "description": "Base path or folder for this stack"
                 },
                 {
-                    "name": "PORT",
+                    "name": "HA_NAME",
+                    "label": "Home Assistant container name",
+                    "default": "homeassistant"
+                },
+                {
+                    "name": "HA_PORT",
                     "label": "Web GUI port",
                     "default": "8123"
                 },
+                
                 {
-                    "name": "VERSION",
+                    "name": "HA_VERSION",
                     "label": "Home Assistant version",
                     "default": "stable"
+                },
+                {
+                    "name": "GO2RTC_NAME",
+                    "label": "Go2RTC container name",
+                    "default": "go2rtc"
                 },
                 {
                     "name": "GO2RTC_VERSION",
@@ -188,14 +199,9 @@
                     "default": "latest"
                 },
                 {
-                    "name": "HA_NAME",
-                    "label": "Home Assistant container name",
-                    "default": "homeassistant"
-                },
-                {
-                    "name": "GO2RTC_NAME",
-                    "label": "Go2RTC container name",
-                    "default": "go2rtc"
+                    "name": "GO2RTC_PORT",
+                    "label": "Go2RTC port",
+                    "default": "1984"
                 }
             ]
         }
