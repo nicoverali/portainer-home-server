@@ -176,6 +176,16 @@
                     "name": "PORT",
                     "label": "Web GUI port",
                     "default": "8123"
+                },
+                {
+                    "name": "VERSION",
+                    "label": "Home Assistant version",
+                    "default": "stable"
+                },
+                {
+                    "name": "GO2RTC_VERSION",
+                    "label": "Go2RTC version",
+                    "default": "latest"
                 }
             ]
         }
