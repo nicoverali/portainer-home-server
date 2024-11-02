@@ -178,12 +178,6 @@
                     "default": "homeassistant"
                 },
                 {
-                    "name": "HA_PORT",
-                    "label": "Web GUI port",
-                    "default": "8123"
-                },
-                
-                {
                     "name": "HA_VERSION",
                     "label": "Home Assistant version",
                     "default": "stable"
