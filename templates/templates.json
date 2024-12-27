@@ -95,6 +95,27 @@
         },
         {
             "type": 3,
+            "title": "Frigate",
+            "description": "A Network Video Recorder (NVR) for IP cameras with AI object detection and powerful configuration options",
+            "categories": [
+                "network"
+            ],
+            "logo": "https://frigate.video/img/frigate-logo.svg",
+            "repository": {
+                "url": "https://github.com/nicoverali/portainer-home-server.git",
+                "stackfile": "templates/frigate/docker-compose.yml"
+            },
+            "env": [
+                {
+                    "name": "BASE_PATH",
+                    "label": "Stack base path",
+                    "default": "frigate",
+                    "description": "Base path or folder for this stack"
+                }
+            ]
+        },
+        {
+            "type": 3,
             "title": "Nginx Proxy Manager",
             "description": "An Nginx manager for proxying services and more !",
             "categories": [
