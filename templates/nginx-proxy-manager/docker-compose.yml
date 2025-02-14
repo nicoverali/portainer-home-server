@@ -12,10 +12,13 @@ services:
       - ${INTERNAL_CONTAINERS_PATH:?}/${BASE_PATH}/data:/data
       - ${INTERNAL_CONTAINERS_PATH:?}/${BASE_PATH}/letsencrypt:/etc/letsencrypt
     networks:
-      services:
+      - services
+      - nginx-bridge
 
 
 networks:
   services:
     external: true
     name: ${SERVICES_NETWORK_NAME:?}
+  nginx-bridge:
+    name: nginx-bridge
