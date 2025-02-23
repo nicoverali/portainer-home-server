@@ -7,27 +7,8 @@ services:
       - ${INTERNAL_CONTAINERS_PATH:?}/${BASE_PATH}/data:/app/pb_data
     # # To use a non-root user, create the mountpoint first (mkdir data) so that it has the right permission.
     user: ${CONTAINERS_UID}:${CONTAINERS_UID}
-    ports:
-      - 8090:8090
+    network_mode: host
     environment:
       - TZ=${CONTAINERS_TZ}
       - UPSNAP_SCAN_RANGE=192.168.0.0/24 # Scan range is used for device discovery on local network
       - UPSNAP_PING_PRIVILEGED=true # Set to false if you don't have root user permissions
-    sysctls:
-      - net.ipv4.icmp_echo_ignore_broadcasts=0
-      - net.ipv4.conf.all.bc_forwarding=1
-      - net.ipv4.conf.${DOCKER_NET_INTERFACE:?}.bc_forwarding=1
-    networks:
-      - services
-      - default
-
-# Take a look at https://www.devwithimagination.com/2020/06/15/homebridge-docker-and-wake-on-lan/
-# For setting up network
-
-networks:
-  default:
-    name: upsnap-bridge
-    external: true
-  services:
-    external: true
-    name: home-services
