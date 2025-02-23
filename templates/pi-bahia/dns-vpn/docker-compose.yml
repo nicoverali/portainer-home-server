@@ -44,7 +44,9 @@ services:
     volumes:
       - ${INTERNAL_CONTAINERS_PATH:?}/${BASE_PATH:?}/wireguard:/config
       - /lib/modules:/lib/modules
-      - ${PWD}/wg1.conf:/etc/wireguard/wg1.conf
+      - type: bind
+        source: ./wg1.conf
+        target: /etc/wireguard/wg1.conf
     ports:
       - 51820:51820/udp
       - 51821:51821/udp
