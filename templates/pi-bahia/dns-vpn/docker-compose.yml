@@ -14,7 +14,7 @@ services:
       QUERY_LOGGING: "false"
     volumes:
       - ${INTERNAL_CONTAINERS_PATH:?}/${BASE_PATH:?}/pihole:/etc/pihole
-      - ${HOST_DNSLIST_PATH:?}:/etc/pihole/custom.list
+      - ${CONFIG_FILES_PATH:?}/custom.list:/etc/pihole/custom.list
     restart: unless-stopped
     networks:
       services:
@@ -44,9 +44,7 @@ services:
     volumes:
       - ${INTERNAL_CONTAINERS_PATH:?}/${BASE_PATH:?}/wireguard:/config
       - /lib/modules:/lib/modules
-      - type: bind
-        source: ./wg1.conf
-        target: /etc/wireguard/wg1.conf
+      - ${CONFIG_FILES_PATH:?}/wg1.conf:/wg1.conf
     ports:
       - 51820:51820/udp
       - 51821:51821/udp

@@ -43,9 +43,9 @@
                     "description": "Base path or folder for this stack"
                 },
                 {
-                    "name": "HOST_DNSLIST_PATH",
-                    "label": "Host path to custom list",
-                    "description": "Path in host machine to custom.list file"
+                    "name": "CONFIG_FILES_PATH",
+                    "label": "Host path to config files",
+                    "description": "Path in host machine to config files"
                 },
                 {
                     "name": "PIHOLE_PASSWORD",
