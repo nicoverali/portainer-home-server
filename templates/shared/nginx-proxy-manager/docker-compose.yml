@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - ${INTERNAL_CONTAINERS_PATH:?}/${BASE_PATH}/data:/data
+      - ${INTERNAL_CONTAINERS_PATH:?}/${BASE_PATH}/letsencrypt:/etc/letsencrypt
+    networks:
+      - services
+      - nginx-bridge
+
+
+networks:
+  services:
+    external: true
+    name: ${SERVICES_NETWORK_NAME:?}
+  nginx-bridge:
+    name: nginx-bridge

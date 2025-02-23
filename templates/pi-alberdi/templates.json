@@ -11,7 +11,7 @@
             "logo": "https://www.plex.tv/wp-content/themes/plex/assets/img/plex-logo.svg",
             "repository": {
                 "url": "https://github.com/nicoverali/portainer-home-server.git",
-                "stackfile": "templates/plex-server-torrent/docker-compose.yml"
+                "stackfile": "templates/pi-alberdi/plex-server-torrent/docker-compose.yml"
             },
             "env": [
                 {
@@ -60,7 +60,7 @@
             "logo": "https://repository-images.githubusercontent.com/574614166/c02918af-cc35-4478-86fb-5288b742841e",
             "repository": {
                 "url": "https://github.com/nicoverali/portainer-home-server.git",
-                "stackfile": "templates/dns-vpn/docker-compose.yml"
+                "stackfile": "templates/pi-alberdi/dns-vpn/docker-compose.yml"
             },
             "env": [
                 {
@@ -103,7 +103,7 @@
             "logo": "https://frigate.video/img/frigate-logo.svg",
             "repository": {
                 "url": "https://github.com/nicoverali/portainer-home-server.git",
-                "stackfile": "templates/frigate/docker-compose.yml"
+                "stackfile": "templates/pi-alberdi/frigate/docker-compose.yml"
             },
             "env": [
                 {
@@ -115,56 +115,34 @@
             ]
         },
         {
-           "type": 3,
-           "title": "Nginx Proxy Manager",
-           "description": "An Nginx manager for proxying services and more !",
-           "categories": [
-               "network"
-           ],
-           "logo": "https://nginxproxymanager.com/icon.png",
-           "repository": {
-               "url": "https://github.com/nicoverali/portainer-home-server.git",
-               "stackfile": "templates/nginx-proxy-manager/docker-compose.yml"
-           },
-           "note": "You can configure Nginx configuration by editing the template files. You can have as many templates as you like",
-           "env": [
-               {
-                   "name": "BASE_PATH",
-                   "label": "Stack base path",
-                   "default": "nginx-proxy-manager",
-                   "description": "Base path or folder for this stack"
-               },
-               {
-                   "name": "SERVICES_NETWORK_NAME",
-                   "label": "Services network name",
-                   "default": "home-services",
-                   "description": "Name for home services bridge network"
-               }
-           ]
+            "type": 3,
+            "title": "Nginx Proxy Manager",
+            "description": "An Nginx manager for proxying services and more !",
+            "categories": [
+                "network"
+            ],
+            "logo": "https://nginxproxymanager.com/icon.png",
+            "repository": {
+                "url": "https://github.com/nicoverali/portainer-home-server.git",
+                "stackfile": "templates/pi-alberdi/nginx-proxy-manager/docker-compose.yml"
+            },
+            "note": "You can configure Nginx configuration by editing the template files. You can have as many templates as you like",
+            "env": [
+                {
+                    "name": "BASE_PATH",
+                    "label": "Stack base path",
+                    "default": "nginx-proxy-manager",
+                    "description": "Base path or folder for this stack"
+                },
+                {
+                    "name": "SERVICES_NETWORK_NAME",
+                    "label": "Services network name",
+                    "default": "home-services",
+                    "description": "Name for home services bridge network"
+                }
+            ]
         },
-	{
-           "type": 3,
-           "title": "Wake-on-LAN",
-           "description": "Allows you to manager local devices and turn them on",
-           "categories": [
-               "network"
-           ],
-           "logo": "https://github.com/seriousm4x/UpSnap/blob/master/frontend/static/gopher.svg",
-           "repository": {
-               "url": "https://github.com/nicoverali/portainer-home-server.git",
-               "stackfile": "templates/wol/docker-compose.yml"
-           },
-           "note": "You can configure Nginx configuration by editing the template files. You can have as many templates as you like",
-           "env": [
-               {
-                   "name": "BASE_PATH",
-                   "label": "Stack base path",
-                   "default": "wol",
-                   "description": "Base path or folder for this stack"
-               }
-           ]
-       },
-       {
+        {
             "type": 3,
             "title": "Immich",
             "description": "A set of storage related services to backup photos and documents",
@@ -175,7 +153,7 @@
             "logo": "https://immich.app/img/immich-logo.svg",
             "repository": {
                 "url": "https://github.com/nicoverali/portainer-home-server.git",
-                "stackfile": "templates/storage-services/docker-compose.yml"
+                "stackfile": "templates/pi-alberdi/storage-services/docker-compose.yml"
             },
             "env": [
                 {
@@ -206,7 +184,7 @@
             "logo": "https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_homeassistant_icon_130543.png",
             "repository": {
                 "url": "https://github.com/nicoverali/portainer-home-server.git",
-                "stackfile": "templates/home-assistant/docker-compose.yml"
+                "stackfile": "templates/pi-alberdi/home-assistant/docker-compose.yml"
             },
             "env": [
                 {

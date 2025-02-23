@@ -19,7 +19,6 @@ services:
   templates:
     image: httpd
     container_name: templates
-    ports:
-      - 8080:80
+    restart: always
     volumes:
-      - ./templates/templates.json:/usr/local/apache2/htdocs/templates.json
+      - ${TEMPLATES_FOLDER}/templates.json:/usr/local/apache2/htdocs/templates.json

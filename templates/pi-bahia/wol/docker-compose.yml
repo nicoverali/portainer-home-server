@@ -1,0 +1,22 @@
+services:
+  upsnap:
+    container_name: upsnap
+    image: ghcr.io/seriousm4x/upsnap:4 # images are also available on docker hub: seriousm4x/upsnap:4
+    restart: unless-stopped
+    volumes:
+      - ${INTERNAL_CONTAINERS_PATH:?}/${BASE_PATH}/data:/app/pb_data
+    # # To use a non-root user, create the mountpoint first (mkdir data) so that it has the right permission.
+    user: ${CONTAINERS_UID}:${CONTAINERS_UID}
+    ports:
+      - 8090:8090
+    environment:
+      - TZ=${CONTAINERS_TZ}
+      - UPSNAP_SCAN_RANGE=192.168.0.0/24 # Scan range is used for device discovery on local network
+      - UPSNAP_PING_PRIVILEGED=true # Set to false if you don't have root user permissions
+    networks:
+      - services
+
+networks:
+  services:
+    external: true
+    name: home-services

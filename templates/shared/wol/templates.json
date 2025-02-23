@@ -1,0 +1,28 @@
+{
+    "type": 3,
+    "title": "Wake-on-LAN",
+    "description": "Allows you to manager local devices and turn them on",
+    "categories": [
+        "network"
+    ],
+    "logo": "https://github.com/seriousm4x/UpSnap/blob/master/frontend/static/gopher.svg",
+    "repository": {
+        "url": "https://github.com/nicoverali/portainer-home-server.git",
+        "stackfile": "templates/wol/docker-compose.yml"
+    },
+    "note": "You can configure Nginx configuration by editing the template files. You can have as many templates as you like",
+    "env": [
+        {
+            "name": "BASE_PATH",
+            "label": "Stack base path",
+            "default": "wol",
+            "description": "Base path or folder for this stack"
+        },
+        {
+            "name": "SERVICES_NETWORK_NAME",
+            "label": "Services network name",
+            "default": "home-services",
+            "description": "Name for home services bridge network"
+        }
+    ]
+}

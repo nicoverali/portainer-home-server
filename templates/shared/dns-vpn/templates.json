@@ -1,0 +1,43 @@
+{
+    "type": 3,
+    "title": "Wirehole (DNS+VPN)",
+    "description": "A Pi-hole DNS instance for local routing and ads blocking, plus Wireguard for VPN connection to the server",
+    "categories": [
+        "network"
+    ],
+    "logo": "https://repository-images.githubusercontent.com/574614166/c02918af-cc35-4478-86fb-5288b742841e",
+    "repository": {
+        "url": "https://github.com/nicoverali/portainer-home-server.git",
+        "stackfile": "templates/dns-vpn/docker-compose.yml"
+    },
+    "env": [
+        {
+            "name": "BASE_PATH",
+            "label": "Stack base path",
+            "default": "wirehole",
+            "description": "Base path or folder for this stack"
+        },
+        {
+            "name": "HOST_DNSLIST_PATH",
+            "label": "Host path to custom list",
+            "description": "Path in host machine to custom.list file"
+        },
+        {
+            "name": "PIHOLE_PORT",
+            "label": "Pi-hole port",
+            "default": "80",
+            "description": "The open port for Pi-hole web interface"
+        },
+        {
+            "name": "PIHOLE_PASSWORD",
+            "label": "Pi-hole password",
+            "description": "Admin password for Pi-hole web interface"
+        },
+        {
+            "name": "PEERS_CANT",
+            "label": "Peers",
+            "default": "2",
+            "description": "Number of Wireguard peers"
+        }
+    ]
+}

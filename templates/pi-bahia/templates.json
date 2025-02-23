@@ -1,0 +1,89 @@
+[
+    {
+        "type": 3,
+        "title": "Nginx Proxy Manager",
+        "description": "An Nginx manager for proxying services and more !",
+        "categories": [
+            "network"
+        ],
+        "logo": "https://nginxproxymanager.com/icon.png",
+        "repository": {
+            "url": "https://github.com/nicoverali/portainer-home-server.git",
+            "stackfile": "templates/pi-bahia/nginx-proxy-manager/docker-compose.yml"
+        },
+        "note": "You can configure Nginx configuration by editing the template files. You can have as many templates as you like",
+        "env": [
+            {
+                "name": "BASE_PATH",
+                "label": "Stack base path",
+                "default": "nginx-proxy-manager",
+                "description": "Base path or folder for this stack"
+            }
+        ]
+    },
+    {
+        "type": 3,
+        "title": "Wirehole (DNS+VPN)",
+        "description": "A Pi-hole DNS instance for local routing and ads blocking, plus Wireguard for VPN connection to the server",
+        "categories": [
+            "network"
+        ],
+        "logo": "https://repository-images.githubusercontent.com/574614166/c02918af-cc35-4478-86fb-5288b742841e",
+        "repository": {
+            "url": "https://github.com/nicoverali/portainer-home-server.git",
+            "stackfile": "templates/pi-bahia/dns-vpn/docker-compose.yml"
+        },
+        "env": [
+            {
+                "name": "BASE_PATH",
+                "label": "Stack base path",
+                "default": "wirehole",
+                "description": "Base path or folder for this stack"
+            },
+            {
+                "name": "HOST_DNSLIST_PATH",
+                "label": "Host path to custom list",
+                "description": "Path in host machine to custom.list file"
+            },
+            {
+                "name": "PIHOLE_PASSWORD",
+                "label": "Pi-hole password",
+                "description": "Admin password for Pi-hole web interface"
+            },
+            {
+                "name": "PEERS_CANT",
+                "label": "Peers",
+                "default": "2",
+                "description": "Number of Wireguard peers"
+            }
+        ]
+    },
+    {
+        "type": 3,
+        "title": "Wake-on-LAN",
+        "description": "Allows you to manager local devices and turn them on",
+        "categories": [
+            "network"
+        ],
+        "logo": "https://github.com/seriousm4x/UpSnap/blob/master/frontend/static/gopher.svg",
+        "repository": {
+            "url": "https://github.com/nicoverali/portainer-home-server.git",
+            "stackfile": "templates/pi-bahia/wol/docker-compose.yml"
+        },
+        "note": "You can configure Nginx configuration by editing the template files. You can have as many templates as you like",
+        "env": [
+            {
+                "name": "BASE_PATH",
+                "label": "Stack base path",
+                "default": "wol",
+                "description": "Base path or folder for this stack"
+            },
+            {
+                "name": "SERVICES_NETWORK_NAME",
+                "label": "Services network name",
+                "default": "home-services",
+                "description": "Name for home services bridge network"
+            }
+        ]
+    }
+]
