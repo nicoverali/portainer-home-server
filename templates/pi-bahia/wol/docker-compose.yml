@@ -21,6 +21,9 @@ services:
       - services
       - upsnap
 
+# Take a look at https://www.devwithimagination.com/2020/06/15/homebridge-docker-and-wake-on-lan/
+# For setting up network
+
 networks:
   upsnap:
     name: upsnap-bridge
