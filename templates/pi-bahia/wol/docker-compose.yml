@@ -16,15 +16,16 @@ services:
     sysctls:
       - net.ipv4.icmp_echo_ignore_broadcasts=0
       - net.ipv4.conf.all.bc_forwarding=1
+      - net.ipv4.conf.${DOCKER_NET_INTERFACE:?}.bc_forwarding=1
     networks:
       - services
-      - upsnap
+      - default
 
 # Take a look at https://www.devwithimagination.com/2020/06/15/homebridge-docker-and-wake-on-lan/
 # For setting up network
 
 networks:
-  upsnap:
+  default:
     name: upsnap-bridge
     external: true
   services:
