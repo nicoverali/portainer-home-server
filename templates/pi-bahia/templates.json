@@ -79,17 +79,6 @@
                     "label": "Stack base path",
                     "default": "wol",
                     "description": "Base path or folder for this stack"
-                },
-                {
-                    "name": "SERVICES_NETWORK_NAME",
-                    "label": "Services network name",
-                    "default": "home-services",
-                    "description": "Name for home services bridge network"
-                },
-                {
-                    "name": "DOCKER_NET_INTERFACE",
-                    "label": "Docker network interface",
-                    "description": "Name of the docker interface for the upsnap network."
                 }
             ]
         }
