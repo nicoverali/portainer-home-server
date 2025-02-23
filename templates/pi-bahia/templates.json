@@ -11,7 +11,7 @@
             "logo": "https://nginxproxymanager.com/icon.png",
             "repository": {
                 "url": "https://github.com/nicoverali/portainer-home-server.git",
-                "stackfile": "templates/pi-bahia/nginx-proxy-manager/docker-compose.yml"
+                "stackfile": "templates/pi-bahia/nginx/docker-compose.yml"
             },
             "note": "You can configure Nginx configuration by editing the template files. You can have as many templates as you like",
             "env": [
