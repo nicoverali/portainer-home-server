@@ -15,8 +15,12 @@ services:
       - UPSNAP_PING_PRIVILEGED=true # Set to false if you don't have root user permissions
     networks:
       - services
+      - upsnap
 
 networks:
+  upsnap:
+    name: upsnap-bridge
+    driver: bridge
   services:
     external: true
     name: home-services
