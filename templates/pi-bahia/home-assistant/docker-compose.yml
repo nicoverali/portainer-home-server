@@ -1,0 +1,10 @@
+version: '3'
+services:
+  homeassistant:
+    container_name: ${HA_NAME}
+    image: "ghcr.io/home-assistant/home-assistant:${HA_VERSION}"
+    network_mode: host
+    volumes:
+      - ${INTERNAL_CONTAINERS_PATH:?}/${BASE_PATH:?}/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
