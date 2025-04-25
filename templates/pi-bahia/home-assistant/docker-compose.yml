@@ -9,5 +9,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /dev:/dev
     restart: unless-stopped
+    group_add:
+      - dialout
     devices:
-      - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_ba955a46eda5ed11b859e9a32981d5c7-if00-port0:/dev/ttyUSB0
